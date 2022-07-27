@@ -10,9 +10,13 @@ export class UtilitiesComponent {
 
   number;
   utilities;
+  clicked = true;
   constructor(utilities: UtilitiesService) { 
     this.number = utilities.getNumber();
     this.utilities = utilities.getUtilities();
   }
 
+  handleClick() {
+    this.clicked = !this.clicked
+  }
 }
