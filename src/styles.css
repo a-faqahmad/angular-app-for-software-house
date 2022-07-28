@@ -29,18 +29,31 @@ body {
 .login-wrapper {
   height: 100%;
 }
+.form-box {
+  padding: 20px;
+  background: white;
+  height: fit-content;
+}
 .box {
   position: relative;
   top: 0;
   opacity: 1;
   float: left;
   width: 900px;
-  background: #2C3333;
+  background: white;
   border-radius: 10px;
   transform: scale(1);
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   z-index: 5;
+}
+.text-field {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.card-textfield {
+  color: #808080;
+  font-size: 15px;
 }
 .box.back {
   transform: scale(.95);
@@ -81,7 +94,7 @@ body {
   margin: 0;
 }
 .login-wrapper .mat-card {
-  padding: 40px 70px 50px;
+  padding: 40px 10px 50px;
 }
 .login-wrapper .mat-stroked-button {
   border: 1px solid currentColor;

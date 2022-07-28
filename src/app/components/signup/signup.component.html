@@ -1,5 +1,5 @@
 <div class="login-wrapper" fxlayout="column" fxLayoutAlign="center">
-    <form class="box" fxLayout="column" fxLayoutAlign="center center">
+    <form (submit)="onSubmit()" [formGroup]="form" class="form-box" fxLayout="column">
         <mat-card class="box">
             <mat-card-header fxLayout="row" fxLayoutAlign="start">
                 <mat-card-title>Billing Address</mat-card-title>
@@ -7,49 +7,78 @@
             <mat-card-content style="padding-left: 16px">
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <mat-form-field class="content-field">
-                        <input matInput placeholder="First Name">
+                        <input formControlName="first_name" matInput placeholder="First Name ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="first_name?.invalid">This field is required</mat-error>
                     </mat-form-field>
                     <mat-form-field class="content-field">
-                        <input matInput placeholder="Second Name">
+                        <input formControlName="last_name" matInput placeholder="Second Name ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="last_name?.invalid">This field is required</mat-error>
                     </mat-form-field>
                 </div>
                 <mat-form-field class="content-field">
-                    <input matInput placeholder="Address line 1">
+                    <input formControlName="address1" matInput placeholder="Address line 1 ">
+                    <mat-error stlye="padding-bottom: 30px" *ngIf="address1?.invalid">This field is required</mat-error>
                 </mat-form-field>
                 <mat-form-field class="content-field">
-                    <input matInput placeholder="Address line 2">
+                    <input formControlName="address2" matInput placeholder="Address line 2">
                 </mat-form-field>
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <mat-form-field class="content-field">
-                        <input matInput placeholder="City/District">
+                        <input formControlName="city" matInput placeholder="City/District ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="city?.invalid">This field is required</mat-error>
                     </mat-form-field>
                     <mat-form-field class="content-field">
-                        <input matInput placeholder="Province/State">
+                        <input formControlName="state" matInput placeholder="Province/State ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="state?.invalid">This field is required</mat-error>
                     </mat-form-field>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <mat-form-field class="content-field">
-                        <input matInput placeholder="Country">
+                        <input formControlName="country" matInput placeholder="Country ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="country?.invalid">This field is required</mat-error>
                     </mat-form-field>
                     <mat-form-field class="content-field">
-                        <input matInput placeholder="Postal code">
+                        <input formControlName="code" matInput placeholder="Postal code ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="code?.invalid">This field is required</mat-error>
                     </mat-form-field>
                 </div>
             </mat-card-content>
         </mat-card>
+        <div class="text-field">
+            <mat-checkbox [checked]="form.get('sameAddress')?.value" formControlName="sameAddress">
+                My shipping address is same as my billing address
+            </mat-checkbox>
+        </div>
+        <div class="text-field">
+            <mat-radio-group>
+                <mat-radio-button style="padding-right: 10px" value="1">Create an account</mat-radio-button>
+                <mat-radio-button value="2">Check in as guest</mat-radio-button>
+              </mat-radio-group>              
+        </div>
         <mat-card class="box">
             <mat-card-content>
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Username">
+                <mat-form-field class="content-field">
+                    <input formControlName="email" matInput placeholder="Email ">
+                    <mat-error stlye="padding-bottom: 30px" *ngIf="email?.errors?.['required']">This field is required</mat-error>
+                    <mat-error stlye="padding-bottom: 30px" *ngIf="email?.errors?.['email']">Incorrect email pattern</mat-error>
                 </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Email">
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Password">
-                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field class="content-field">
+                        <input formControlName="password" matInput placeholder="Password ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="password?.errors?.['required']">This field is required</mat-error>
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="password?.errors?.['pattern']">Incorrect password pattern</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="content-field">
+                        <input formControlName="confirm_password" matInput placeholder="Confirm Password ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="confirm_password?.invalid">This field is required</mat-error>
+                    </mat-form-field>
+                </div>
             </mat-card-content>
+            <mat-error stlye="padding-bottom: 50px" *ngIf="password?.value !== confirm_password?.value && confirm_password?.touched">Password must match Confirmed Password</mat-error>
+            <mat-hint>
+                Minimum eight characters, at least one uppercase and one lowercase letter, one number and one special character (@#$%!&)
+            </mat-hint>
         </mat-card>
-        <button mat-stroked-button color="primary" class="btn-block">Submit</button>
+        <input type="submit" mat-stroked-button color="primary" class="btn btn-primary">
     </form>
 </div>
