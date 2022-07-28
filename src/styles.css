@@ -12,7 +12,7 @@ body {
   height: 100%;
 }
 body {
-  margin: 0;
+  margin: 20px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   min-height: 100vh;
   background: #e2e2e2;
@@ -33,6 +33,7 @@ body {
   padding: 20px;
   background: white;
   height: fit-content;
+  margin: 20px;
 }
 .box {
   position: relative;
@@ -46,6 +47,7 @@ body {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   z-index: 5;
+  margin-bottom: 20px;
 }
 .text-field {
   padding-top: 10px;
@@ -103,4 +105,8 @@ body {
 }
 .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0.8375em 0;
+}
+.submit-btn {
+  width: 20%;
+  margin-left: 80%;
 }
