@@ -7,11 +7,11 @@
             <mat-card-content style="padding-left: 16px">
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <mat-form-field class="content-field">
-                        <input formControlName="first_name" matInput placeholder="First Name ">
+                        <input onkeydown="return /[a-z]/i.test(event.key)" formControlName="first_name" matInput placeholder="First Name ">
                         <mat-error stlye="padding-bottom: 30px" *ngIf="first_name?.invalid">This field is required</mat-error>
                     </mat-form-field>
                     <mat-form-field class="content-field">
-                        <input formControlName="last_name" matInput placeholder="Second Name ">
+                        <input onkeydown="return /[a-z]/i.test(event.key)" formControlName="last_name" matInput placeholder="Second Name ">
                         <mat-error stlye="padding-bottom: 30px" *ngIf="last_name?.invalid">This field is required</mat-error>
                     </mat-form-field>
                 </div>
@@ -24,21 +24,21 @@
                 </mat-form-field>
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <mat-form-field class="content-field">
-                        <input formControlName="city" matInput placeholder="City/District ">
+                        <input onkeydown="return /[a-z]/i.test(event.key)" formControlName="city" matInput placeholder="City/District ">
                         <mat-error stlye="padding-bottom: 30px" *ngIf="city?.invalid">This field is required</mat-error>
                     </mat-form-field>
                     <mat-form-field class="content-field">
-                        <input formControlName="state" matInput placeholder="Province/State ">
+                        <input onkeydown="return /[a-z]/i.test(event.key)" formControlName="state" matInput placeholder="Province/State ">
                         <mat-error stlye="padding-bottom: 30px" *ngIf="state?.invalid">This field is required</mat-error>
                     </mat-form-field>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <mat-form-field class="content-field">
-                        <input formControlName="country" matInput placeholder="Country ">
+                        <input onkeydown="return /[a-z]/i.test(event.key)" formControlName="country" matInput placeholder="Country ">
                         <mat-error stlye="padding-bottom: 30px" *ngIf="country?.invalid">This field is required</mat-error>
                     </mat-form-field>
                     <mat-form-field class="content-field">
-                        <input formControlName="code" matInput placeholder="Postal code ">
+                        <input type="number" formControlName="code" matInput placeholder="Postal code ">
                         <mat-error stlye="padding-bottom: 30px" *ngIf="code?.invalid">This field is required</mat-error>
                     </mat-form-field>
                 </div>
