@@ -1,0 +1,55 @@
+<div class="login-wrapper" fxlayout="column" fxLayoutAlign="center">
+    <form class="box" fxLayout="column" fxLayoutAlign="center center">
+        <mat-card class="box">
+            <mat-card-header fxLayout="row" fxLayoutAlign="start">
+                <mat-card-title>Billing Address</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="padding-left: 16px">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field class="content-field">
+                        <input matInput placeholder="First Name">
+                    </mat-form-field>
+                    <mat-form-field class="content-field">
+                        <input matInput placeholder="Second Name">
+                    </mat-form-field>
+                </div>
+                <mat-form-field class="content-field">
+                    <input matInput placeholder="Address line 1">
+                </mat-form-field>
+                <mat-form-field class="content-field">
+                    <input matInput placeholder="Address line 2">
+                </mat-form-field>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field class="content-field">
+                        <input matInput placeholder="City/District">
+                    </mat-form-field>
+                    <mat-form-field class="content-field">
+                        <input matInput placeholder="Province/State">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field class="content-field">
+                        <input matInput placeholder="Country">
+                    </mat-form-field>
+                    <mat-form-field class="content-field">
+                        <input matInput placeholder="Postal code">
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="box">
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password">
+                </mat-form-field>
+            </mat-card-content>
+        </mat-card>
+        <button mat-stroked-button color="primary" class="btn-block">Submit</button>
+    </form>
+</div>
