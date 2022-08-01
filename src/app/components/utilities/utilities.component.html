@@ -1,5 +1,17 @@
 <p>{{number}} authers</p>
-<i class="bi"
-    [ngClass]="clicked ? 'bi-star' : 'bi-star-fill'"
-    (click)=handleClick()>
+<i class="bi" [ngClass]="clicked ? 'bi-star' : 'bi-star-fill'" (click)=handleClick()>
 </i>
+<ul class="nav nav-pills">
+    <button class="btn" [ngClass]="viewMode === 'grid' ? 'btn-primary' : 'btn-light'" (click)="viewMode = 'grid'">
+            <a>Grid View</a>
+    </button>
+    <button class="btn" [ngClass]="viewMode === 'list' ? 'btn-primary' : 'btn-light'" (click)="viewMode = 'list'">
+        <a>List View</a>
+    </button>
+</ul>
+
+<div *ngIf="viewMode == 'grid'">GRID SHOWING</div>
+
+<div *ngIf="viewMode == 'list' then lists else grids"></div>
+<ng-template #lists>here are the lists</ng-template>
+<ng-template #grids>here are the grids</ng-template>

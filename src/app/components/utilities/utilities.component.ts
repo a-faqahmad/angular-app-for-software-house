@@ -11,6 +11,7 @@ export class UtilitiesComponent {
   number;
   utilities;
   clicked = true;
+  viewMode = 'grid'
   constructor(utilities: UtilitiesService) { 
     this.number = utilities.getNumber();
     this.utilities = utilities.getUtilities();
