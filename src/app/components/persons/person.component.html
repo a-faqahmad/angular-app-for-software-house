@@ -1,5 +1,37 @@
-<h3>
-    <ul>
-        <li *ngFor="let name of _names">{{name}}</li>
-    </ul>
-</h3>
+<h2>Persons</h2>
+<div *ngFor="let person of persons">
+    <div>
+        <mat-card class="card">
+            <img *ngIf="person.photo_id !== ''" class="image" alt="" [src]="'http://localhost:8000/' + person.photo_id"/>
+            <mat-card-header fxLayout="row" fxLayoutAlign="start">
+                <mat-card-title>
+                    {{ person.first_name }}
+                    {{ person.last_name }}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content style=" margin-bottom: 0px; padding-left: 16px" fxLayout="row">
+                <div>
+                    <p style="font-weight: bold; padding-right: 10px">Age</p>
+                </div>
+                <p>{{ person.Age }}</p>
+            </mat-card-content>
+            <mat-card-content style=" margin-bottom: 0px; padding-left: 16px" fxLayout="row">
+                <div>
+                    <p style="font-weight: bold; padding-right: 10px">DOB</p>
+                </div>
+                <p>{{ person.date_of_birth }}</p>
+            </mat-card-content>
+            <mat-card-content *ngIf="person.address != ''" style="padding-left: 16px" fxLayout="row">
+                <div>
+                    <p style="font-weight: bold; padding-right: 10px">Address</p>
+                </div>
+                <p>{{ person.address }}</p>
+            </mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="end center">
+                <button class="btn btn-primary btn-space" style="margin-right: 10px;"
+                    (click)="handleUpdate(person.id)">Update</button>
+                <button class="btn btn-danger" (click)="handleDelete(person.id)">Delete</button>
+            </div>
+        </mat-card>
+    </div>
+</div>

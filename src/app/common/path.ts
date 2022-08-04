@@ -1,0 +1,1 @@
+export const url: string = "https://afaq-agency-backend.herokuapp.com"

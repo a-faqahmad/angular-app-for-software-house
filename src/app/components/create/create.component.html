@@ -1,0 +1,37 @@
+<div class="login-wrapper" fxlayout="column" fxLayoutAlign="center">
+    <form (submit)="onSubmit()" [formGroup]="form" class="form-box" fxLayout="column">
+        <mat-card class="box">
+            <mat-card-header fxLayout="row" fxLayoutAlign="start">
+                <mat-card-title>User Details</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="padding-left: 16px">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field class="content-field">
+                        <input onkeydown="return /[a-z]/i.test(event.key)" formControlName="first_name" matInput placeholder="First Name ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="first_name?.invalid">This field is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="content-field">
+                        <input onkeydown="return /[a-z]/i.test(event.key)" formControlName="last_name" matInput placeholder="Second Name ">
+                        <mat-error stlye="padding-bottom: 30px" *ngIf="last_name?.invalid">This field is required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field class="content-field">
+                        <input formControlName="address" matInput placeholder="Address ">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field class="content-field">
+                        <input type="date" formControlName="date_of_birth" matInput placeholder="date_of_birth">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <div class="content-field">
+                        <input type="file" accept="image/*" (change)="imageUpload($event)" placeholder="Picture">
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <input type="submit" mat-stroked-button color="primary" class="btn btn-primary submit-btn">
+    </form>
+</div>
