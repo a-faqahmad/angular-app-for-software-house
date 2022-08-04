@@ -2,7 +2,7 @@
 <div *ngFor="let person of persons">
     <div>
         <mat-card class="card">
-            <img *ngIf="person.photo_id !== ''" class="image" alt="" [src]="'http://https://afaq-agency-backend.herokuapp.com/' + person.photo_id"/>
+            <img *ngIf="person.photo_id !== ''" class="image" alt="" [src]="'https://afaq-agency-backend.herokuapp.com/' + person.photo_id"/>
             <mat-card-header fxLayout="row" fxLayoutAlign="start">
                 <mat-card-title>
                     {{ person.first_name }}
