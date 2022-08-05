@@ -105,10 +105,13 @@ export class CreateComponent implements OnInit {
     
     if (!this.id) {
       console.log(this.id);
-      this.service.createPerson(this.body).subscribe();
+      this.service.createPerson(this.body).pipe(
+        tap(() => this.router.navigate(['']))
+      ).subscribe();
     } else {
-      this.service.updatePerson(this.activatedRoute.snapshot.params['id'], this.body).subscribe()
+      this.service.updatePerson(this.activatedRoute.snapshot.params['id'], this.body).pipe(
+        tap(() => this.router.navigate(['']))
+      ).subscribe()
     }
-    this.router.navigate(['']); 
   }
 }
