@@ -21,6 +21,9 @@ export class CreateComponent implements OnInit {
     map((data) => this.person = data),
     catchError((err) => {
       console.error('error: ', err);
+      if(err.status === 404) {
+        this.router.navigate(['/404'])
+      }
       return EMPTY;
     }),
     tap(()=>{
@@ -29,7 +32,7 @@ export class CreateComponent implements OnInit {
         last_name: this.person.last_name,
         address: this.person.address,
         date_of_birth: this.person.date_of_birth,
-        photo_id: this.person.photo_id
+        photo_id: ""
       })
     })
   )

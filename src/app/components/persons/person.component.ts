@@ -4,6 +4,7 @@ import { PersonsService } from '../../services/persons/persons.service'
 import { Person } from '../../common/person'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { url } from '../../common/path'
 
 @Component({
   selector: 'person',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class PersonComponent implements OnInit {
   
+  path = url
   persons = <Person[]>[];
   id = <string>""
   constructor(private service: PersonsService, private router: Router) { }
